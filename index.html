@@ -12,7 +12,22 @@
   <link href="style.css" rel="stylesheet" />
 </head>
 <body>
-  <main>
+  <nav class="top-nav">
+    <div class="top-nav-inner">
+      <a class="brand" href="#top">Mix and Match</a>
+      <div class="menu">
+        <a href="#abstract">Abstract</a>
+        <a href="#demonstrations">Data</a>
+        <a href="#framework">Method</a>
+        <a href="#rollouts">Rollouts</a>
+        <a href="#results">Results</a>
+        <a href="#collaboration">Collab</a>
+        <a href="#citation">Citation</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top">
     <header class="hero">
       <h1>Mix and Match: Amplifying Human Demonstrations with Mixed-Embodiment Data</h1>
       <p class="authors">Anonymous Authors</p>
@@ -32,32 +47,36 @@
 
 
 
-    <section id="abstract">
-      <h2>Abstract</h2>
-      <p>
-        Imitation learning for robot manipulation faces a data tradeoff. Human demonstrations are
-        cheap and scalable but carry no labels in the robot’s action space, while teleoperated
-        demonstrations provide exact action supervision at a far higher collection cost. Existing
-        approaches typically treat these as separately collected domains, leaving the relationship
-        between human and robot behavior to be inferred during learning. We introduce
-        <strong>Mixed-Embodiment Demonstrations</strong> as bridge data between human and robot
-        embodiments, designed to make deployment-stage adaptation from human demonstrations to robot
-        control more sample-efficient. By observing human and robot behavior together within the same
-        bimanual task execution, mixed demonstrations provide direct cross-embodiment supervision that
-        is absent when the two domains are collected independently. We evaluate our
-        <strong>Mix and Match</strong> pipeline across three real-world bimanual manipulation tasks. Mix
-        and Match consistently outperforms comparable combinations of independently collected human
-        and robot demonstrations, improving task success by
-        <strong>35 percentage points on average</strong>. We further show that mixed data supports
-        strong performance with substantially less human-only data and improves adaptation from
-        human-pretrained policies. These results suggest that a relatively small amount of
-        mixed-embodiment data may help bridge scalable human experience and robot-specific control
-        more efficiently.
-      </p>
+    <section id="abstract" class="abstract-collapsible">
+      <details>
+        <summary>Abstract</summary>
+        <div class="details-body">
+          <p>
+            Imitation learning for robot manipulation faces a data tradeoff. Human demonstrations are
+            cheap and scalable but carry no labels in the robot’s action space, while teleoperated
+            demonstrations provide exact action supervision at a far higher collection cost. Existing
+            approaches typically treat these as separately collected domains, leaving the relationship
+            between human and robot behavior to be inferred during learning. We introduce
+            <strong>Mixed-Embodiment Demonstrations</strong> as bridge data between human and robot
+            embodiments, designed to make deployment-stage adaptation from human demonstrations to
+            robot control more sample-efficient. By observing human and robot behavior together within
+            the same bimanual task execution, mixed demonstrations provide direct cross-embodiment
+            supervision that is absent when the two domains are collected independently. We evaluate
+            our <strong>Mix and Match</strong> pipeline across three real-world bimanual manipulation
+            tasks. Mix and Match consistently outperforms comparable combinations of independently
+            collected human and robot demonstrations, improving task success by
+            <strong>35 percentage points on average</strong>. We further show that mixed data supports
+            strong performance with substantially less human-only data and improves adaptation from
+            human-pretrained policies. These results suggest that a relatively small amount of
+            mixed-embodiment data may help bridge scalable human experience and robot-specific control
+            more efficiently.
+          </p>
+        </div>
+      </details>
       <figure class="overview-figure">
         <img
           alt="Mix and Match overview of human, mixed, and robot demonstrations"
-          src="figures/overview.png"
+          src="figures/overview.jpg"
         />
         <figcaption>
           Mixed-embodiment demonstrations connect scalable human experience with robot-specific action
@@ -78,8 +97,11 @@
         <article>
           <div class="video-wrap">
             <video
+              autoplay
               controls=""
               data-video="videos/human-human.mp4"
+              loop
+              muted
               playsinline=""
               preload="metadata"
             ></video>
@@ -90,7 +112,15 @@
 
         <article>
           <div class="video-wrap">
-            <video controls="" data-video="videos/mixed.mp4" playsinline="" preload="metadata"></video>
+            <video
+              autoplay
+              controls=""
+              data-video="videos/mixed.mp4"
+              loop
+              muted
+              playsinline=""
+              preload="metadata"
+            ></video>
             <div class="video-fallback"><span>Video coming soon</span></div>
           </div>
           <h3>Human–Robot / Robot–Human (HR/RH)</h3>
@@ -99,8 +129,11 @@
         <article>
           <div class="video-wrap">
             <video
+              autoplay
               controls=""
               data-video="videos/robot-robot.mp4"
+              loop
+              muted
               playsinline=""
               preload="metadata"
             ></video>
@@ -112,7 +145,14 @@
 
       <h3>Overview video</h3>
       <div class="video-wrap intro-video">
-        <video controls="" data-video="videos/overview.mp4" playsinline="" preload="metadata"></video>
+        <video
+          autoplay
+          controls=""
+          data-video="videos/overview.mp4"
+          muted
+          playsinline=""
+          preload="metadata"
+        ></video>
         <div class="video-fallback"><span>Video coming soon</span></div>
       </div>
     </section>
@@ -123,7 +163,7 @@
       <figure>
         <img
           alt="Shared ACT policy with embodiment masking and relative pose supervision"
-          src="figures/architecture.png"
+          src="figures/architecture.jpg"
         />
         <figcaption>
           A shared Action Chunking Transformer predicts robot joint-action chunks on robot sides and
@@ -144,17 +184,16 @@
         Three real-world bimanual tasks, evaluated on a Galaxea A1 platform. Each policy is tested
         over 20 physical trials, with a three-minute time limit.
       </p>
-      <figure>
-        <img alt="Pick and Place, Fold, and Insertion" src="figures/tasks.png" />
-        <figcaption>Three evaluation tasks: Pick and Place, Fold, and Insertion.</figcaption>
-      </figure>
 
       <div class="video-grid three">
         <article>
           <div class="video-wrap">
             <video
+              autoplay
               controls=""
               data-video="videos/pick-place.mp4"
+              loop
+              muted
               playsinline=""
               preload="metadata"
             ></video>
@@ -166,7 +205,15 @@
 
         <article>
           <div class="video-wrap">
-            <video controls="" data-video="videos/fold.mp4" playsinline="" preload="metadata"></video>
+            <video
+              autoplay
+              controls=""
+              data-video="videos/fold.mp4"
+              loop
+              muted
+              playsinline=""
+              preload="metadata"
+            ></video>
             <div class="video-fallback"><span>Video coming soon</span></div>
           </div>
           <h3>Fold</h3>
@@ -176,8 +223,11 @@
         <article>
           <div class="video-wrap">
             <video
+              autoplay
               controls=""
               data-video="videos/insertion.mp4"
+              loop
+              muted
               playsinline=""
               preload="metadata"
             ></video>
@@ -228,30 +278,70 @@
         become less separated as the amount of mixed data increases. This is a qualitative
         observation rather than a conclusive measure of alignment.
       </p>
+      <figure class="pca-figure">
+        <img alt="PCA projections of encoder representations" src="figures/pca.png" />
+        <figcaption>
+          PCA projections for Pick and Place and Fold under varying human–human / robot–robot / mixed
+          demonstration compositions.
+        </figcaption>
+      </figure>
     </section>
 
     <section id="collaboration">
       <h2>Human–Robot Collaboration</h2>
-      <figure>
-        <img alt="Robot acting alongside a human in three tasks" src="figures/collaboration.png" />
-        <figcaption>
-          Without retraining, the learned policy can control one robot arm while a human performs the
-          complementary side of the task.
-        </figcaption>
-      </figure>
       <p>
         In five informal trials per task with one experienced operator, the policy completed each
         task two to three times. These preliminary results are qualitative and do not constitute a
         controlled human-subject study.
       </p>
-      <div class="video-wrap single-video">
-        <video
-          controls=""
-          data-video="videos/collaboration.mp4"
-          playsinline=""
-          preload="metadata"
-        ></video>
-        <div class="video-fallback"><span>Video coming soon</span></div>
+      <div class="video-grid three">
+        <article>
+          <div class="video-wrap">
+            <video
+              autoplay
+              controls=""
+              data-video="videos/collaboration-pick-place.mp4"
+              loop
+              muted
+              playsinline=""
+              preload="metadata"
+            ></video>
+            <div class="video-fallback"><span>Video coming soon</span></div>
+          </div>
+          <h3>Pick and Place</h3>
+        </article>
+
+        <article>
+          <div class="video-wrap">
+            <video
+              autoplay
+              controls=""
+              data-video="videos/collaboration-fold.mp4"
+              loop
+              muted
+              playsinline=""
+              preload="metadata"
+            ></video>
+            <div class="video-fallback"><span>Video coming soon</span></div>
+          </div>
+          <h3>Fold</h3>
+        </article>
+
+        <article>
+          <div class="video-wrap">
+            <video
+              autoplay
+              controls=""
+              data-video="videos/collaboration-insertion.mp4"
+              loop
+              muted
+              playsinline=""
+              preload="metadata"
+            ></video>
+            <div class="video-fallback"><span>Video coming soon</span></div>
+          </div>
+          <h3>Insertion</h3>
+        </article>
       </div>
     </section>
 
@@ -266,36 +356,47 @@
 }</code></pre>
     </section>
 
-    <footer>Mix and Match · Project website</footer>
+    <footer>
+      Mix and Match · Project website
+      <div class="footnote">
+        <strong>Playback speed:</strong> 2× for HH/HR-RH/RR demo tiles (human-human, mixed, robot-robot),
+        8× for all other videos, and 1× for the overview.
+      </div>
+    </footer>
   </main>
 
   <script>
-    const hideMissingImage = (img) => {
-      const figure = img.closest('figure');
-      if (figure) {
-        figure.style.display = 'none';
-      } else {
-        img.style.display = 'none';
-      }
-    };
-
-    document.querySelectorAll('img').forEach((img) => {
-      img.addEventListener('error', () => hideMissingImage(img));
-      // If the browser already tried to load it before this script ran:
-      if (img.complete && img.naturalWidth === 0) hideMissingImage(img);
-    });
-
     document.querySelectorAll('video[data-video]').forEach((v) => {
       const fallback = v.nextElementSibling;
+      const wrap = v.closest('.video-wrap');
+      // Show the video immediately; fall back only if the source fails to load.
+      v.style.display = 'block';
+      fallback.style.display = 'none';
       v.addEventListener('loadedmetadata', () => {
-        v.style.display = 'block';
-        fallback.style.display = 'none';
+        // Match the container's aspect ratio to the actual video to avoid letterboxing.
+        if (wrap && v.videoWidth && v.videoHeight) {
+          wrap.style.aspectRatio = `${v.videoWidth} / ${v.videoHeight}`;
+        }
       });
       v.addEventListener('error', () => {
         v.style.display = 'none';
         fallback.style.display = 'flex';
       });
       v.src = v.dataset.video;
+      const file = (v.dataset.video || '').split('/').pop();
+      if (file === 'overview.mp4') {
+        v.playbackRate = 1;
+        v.defaultPlaybackRate = 1;
+      } else if (file === 'human-human.mp4' || file === 'mixed.mp4' || file === 'robot-robot.mp4') {
+        v.playbackRate = 2;
+        v.defaultPlaybackRate = 2;
+      } else {
+        v.playbackRate = 8;
+        v.defaultPlaybackRate = 8;
+      }
+      if (v.hasAttribute('autoplay')) {
+        v.play().catch(() => {});
+      }
     });
   </script>
 </body>
