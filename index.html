@@ -193,7 +193,7 @@
       <h2>Results</h2>
       <h3>Real-robot success rates</h3>
       <figure>
-        <img alt="Experimental success rate charts" src="figures/results.png" />
+        <img alt="Experimental success rate charts" src="figures/result.png" />
         <figcaption>
           Real-robot success rates over 20 trials per policy. The three panels compare matched-budget
           co-training, replacing human-only demonstrations with mixed data, and fine-tuning from human
@@ -270,6 +270,21 @@
   </main>
 
   <script>
+    const hideMissingImage = (img) => {
+      const figure = img.closest('figure');
+      if (figure) {
+        figure.style.display = 'none';
+      } else {
+        img.style.display = 'none';
+      }
+    };
+
+    document.querySelectorAll('img').forEach((img) => {
+      img.addEventListener('error', () => hideMissingImage(img));
+      // If the browser already tried to load it before this script ran:
+      if (img.complete && img.naturalWidth === 0) hideMissingImage(img);
+    });
+
     document.querySelectorAll('video[data-video]').forEach((v) => {
       const fallback = v.nextElementSibling;
       v.addEventListener('loadedmetadata', () => {
